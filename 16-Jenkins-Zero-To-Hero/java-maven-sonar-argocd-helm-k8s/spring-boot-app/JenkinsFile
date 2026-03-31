@@ -5,7 +5,7 @@ pipeline {
   ////////////////////////////////////////////////////////////////////////////
   agent {
     docker {
-      image 'donald284/maven-jenkins-agent:v3'
+      image 'solalune/maven-jenkins-agent:v3'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
@@ -14,9 +14,9 @@ pipeline {
   // VARIABLES GLOBALES
   ////////////////////////////////////////////////////////////////////////////
   environment {
-    DOCKER_IMAGE = "donald284/ultimate-cicd:${BUILD_NUMBER}"
+    DOCKER_IMAGE = "solalune/ultimate-cicd:${BUILD_NUMBER}"
     GIT_REPO_NAME = "Formation-Devops"
-    GIT_USER_NAME = "donaldte"
+    GIT_USER_NAME = "solalune"
     // SONAR_URL vient de Jenkins (global env var)
   }
 
@@ -107,7 +107,7 @@ pipeline {
             git config user.email "donaldtedom0@gmail.com"
             git config user.name "donaldte"
 
-            sed -i "s#image: donald284/ultimate-cicd:.*#image: donald284/ultimate-cicd:${BUILD_NUMBER}#" \
+            sed -i "s#image: solalune/ultimate-cicd:.*#image: solalune/ultimate-cicd:${BUILD_NUMBER}#" \
               Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
 
             git add Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
