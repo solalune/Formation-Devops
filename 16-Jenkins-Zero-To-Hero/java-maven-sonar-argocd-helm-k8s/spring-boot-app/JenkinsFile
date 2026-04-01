@@ -131,24 +131,24 @@ pipeline {
   ////////////////////////////////////////////////////////////////////////////
   // NOTIFICATIONS SLACK
   ////////////////////////////////////////////////////////////////////////////
-  post {
+  // post {
 
-    success {
-      slackSend(
-        channel: '#test-jenkins',
-        color: '#36a64f',
-        message: "🎉 SUCCESS — Build #${BUILD_NUMBER} déployé avec succès ! 🚀"
-      )
-    }
+    //success {
+    //  slackSend(
+    //    channel: '#test-jenkins',
+    //    color: '#36a64f',
+    //    message: "🎉 SUCCESS — Build #${BUILD_NUMBER} déployé avec succès ! 🚀"
+    //  )
+    //}
 
-    failure {
-      slackSend(
-        channel: '#test-jenkins',
-        color: '#ff0000',
-        message: "❌ FAILURE — Le pipeline #${BUILD_NUMBER} a échoué ! ⚠️"
-      )
-    }
+    //failure {
+    //  slackSend(
+     //   channel: '#test-jenkins',
+      //  color: '#ff0000',
+   //     message: "❌ FAILURE — Le pipeline #${BUILD_NUMBER} a échoué ! ⚠️"
+ //     )
+//    }
 
-  } // end post
+//  } // end post*/
 
 } // end pipeline
