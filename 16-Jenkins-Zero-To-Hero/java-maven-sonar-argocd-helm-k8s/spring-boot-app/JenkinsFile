@@ -40,7 +40,7 @@ pipeline {
     stage('1. Build et Tests (Maven)') {
       steps {
         sh """
-          cd Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
+          cd 16-Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
           mvn clean package
         """
       }
