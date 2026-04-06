@@ -94,11 +94,10 @@ stage('3. Build et Push Docker') {
   }
 }
 
-    /////////////////////////////////////////////////////////
-    // 4. UPDATE K8S MANIFEST (HORS DOCKER - TRÈS IMPORTANT)
+   /////////////////////////////////////////////////////////
+    // 4. UPDATE K8S MANIFEST
     /////////////////////////////////////////////////////////
     stage('4. Mise à jour du manifeste Kubernetes') {
-      agent none   // <-- indispensable
       steps {
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh """
@@ -125,16 +124,14 @@ stage('3. Build et Push Docker') {
             fi
 
             git commit -m "Deploy v${BUILD_NUMBER} (build #${BUILD_NUMBER})"
-            git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git HEAD:main
+            git push https://\${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git HEAD:main
 
             echo "Push réussi ! ArgoCD va déployer la v${BUILD_NUMBER}"
           """
         }
       }
     }
-
   } // end stages
-
   ////////////////////////////////////////////////////////////////////////////
   // NOTIFICATIONS SLACK
   ////////////////////////////////////////////////////////////////////////////
