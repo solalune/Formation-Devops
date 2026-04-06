@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: solalune/ultimate-cicd:11
+        image: solalune/ultimate-cicd:20
         ports:
         - containerPort: 8080
