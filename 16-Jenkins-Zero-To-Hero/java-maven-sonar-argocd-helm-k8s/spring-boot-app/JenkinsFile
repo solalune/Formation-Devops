@@ -53,7 +53,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
           sh """
-            cd Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
+            cd 16-Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
             mvn sonar:sonar \
               -Dsonar.login=$SONAR_AUTH_TOKEN \
               -Dsonar.host.url=${env.SONAR_URL}
