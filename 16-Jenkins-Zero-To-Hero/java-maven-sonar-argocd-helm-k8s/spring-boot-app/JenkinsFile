@@ -69,7 +69,7 @@ pipeline {
       steps {
         script {
           sh """
-            cd Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
+            cd 16-Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
             docker build -t ${DOCKER_IMAGE} .
           """
 
@@ -108,9 +108,9 @@ pipeline {
             git config user.name "donaldte"
 
             sed -i "s#image: solalune/ultimate-cicd:.*#image: solalune/ultimate-cicd:${BUILD_NUMBER}#" \
-              Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+              16-Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
 
-            git add Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+            git add 16-Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
 
             if git diff --staged --quiet; then
               echo "Aucun changement → rien à pousser"
